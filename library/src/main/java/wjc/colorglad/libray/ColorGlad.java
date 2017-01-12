@@ -1,6 +1,7 @@
 package wjc.colorglad.libray;
 
 import android.graphics.Color;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,7 @@ public class ColorGlad {
         int bengin_color = getBenginColor(percent);
         int end_color = getEndColor(percent);
         float two_color_percent = getPercent(bengin_color,end_color,percent);
+        Log.d(TAG,"two_color_percent = "+two_color_percent);
         int r = (int) (Color.red(mColorList.get(end_color))*two_color_percent + Color.red(mColorList.get(bengin_color))*(1.0f-two_color_percent));
         int g = (int) (Color.green(mColorList.get(end_color))*two_color_percent + Color.green(mColorList.get(bengin_color))*(1.0f -two_color_percent));
         int b = (int) (Color.blue(mColorList.get(end_color))*two_color_percent + Color.blue(mColorList.get(bengin_color))*(1.0f - two_color_percent));
@@ -41,6 +43,6 @@ public class ColorGlad {
     }
 
     private float getPercent(int bengin,int end,float percent){
-        return percent*(mCount-1)-(bengin+1)*100;
+        return (percent*(mCount-1)-bengin*100)/100;
     }
 }
