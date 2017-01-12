@@ -9,8 +9,26 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="wjc.colorglad.demo.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <wjc.colorglad.libray.ColorGladView
+        android:id="@+id/colorview"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <View
+        android:id="@+id/colorglad"
+        android:layout_below="@+id/colorview"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:max="100"
+        android:layout_below="@+id/colorglad"
+        android:layout_marginTop="100dp"
+        android:progress="1"
+        />
+
 </RelativeLayout>
